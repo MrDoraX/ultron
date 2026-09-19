@@ -1,0 +1,10 @@
+{
+  "version": "1.2.0",
+  "notes": "Mic/STT: pause during TTS + auto-resume; open conversation after unlock; Ultron cinematic deep voice; Electron mic permission; lower voice unlock threshold.",
+  "publishedAt": "2026-09-19",
+  "win": {
+    "portableUrl": "https://github.com/MrDoraX/ultron/releases/download/v1.2.0/Ultron-1.2.0-portable.exe",
+    "sha256": "0bf1164174b278c75a5f73fb6fe695f855fa1a8ea95fac52acbff7ce11e5cf60",
+    "sizeBytes": 75794647
+  }
+}
