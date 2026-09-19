@@ -33,6 +33,7 @@ jobs:
           ls -la parts
 
       - name: Concatenate → portable exe
+        id: join
         run: |
           set -euo pipefail
           TAG="${{ steps.tag.outputs.tag }}"
@@ -42,7 +43,7 @@ jobs:
               parts/U05.bin parts/U06.bin parts/U07.bin parts/U08.bin > "$OUT"
           ls -la "$OUT"
           sha256sum "$OUT" | tee sha256.txt
-          echo "out=$OUT" >> "$GITHUB_ENV"
+          echo "out=$OUT" >> "$GITHUB_OUTPUT"
 
       - name: Upload portable to release
         env:
@@ -50,4 +51,5 @@ jobs:
         run: |
           set -euo pipefail
           TAG="${{ steps.tag.outputs.tag }}"
+          OUT="${{ steps.join.outputs.out }}"
           gh release upload "$TAG" "$OUT" sha256.txt -R MrDoraX/ultron --clobber
