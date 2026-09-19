@@ -1,10 +1,52 @@
 {
-  "version": "1.2.1",
-  "notes": "Mic on/off orb toggle; voice enrollment waits for your speech (no skip); stronger recognizer + Heard HUD; Ultron cinematic voice.",
+  "version": "1.2.2",
+  "notes": "Chrome-style silent updates: multi-part in-app download, progress banner, auto-restart. No browser redirect.",
   "publishedAt": "2026-09-19",
   "win": {
-    "portableUrl": "https://github.com/MrDoraX/ultron/releases/download/v1.2.1/Ultron-1.2.1-portable.exe",
-    "sha256": "5224727dc011fab8b2fcd2e2fca5f3db3f8cff5a960cd5f93d7f888a6df728d0",
-    "sizeBytes": 75804443
+    "portableUrl": "https://github.com/MrDoraX/ultron/releases/download/v1.2.2/Ultron-1.2.2-portable.exe",
+    "sha256": "c095ce7fdc81bf22c088eb3e08c2230a54cb3ed7de29da0bc8d082eb6ccdcfb0",
+    "sizeBytes": 75803259,
+    "parts": [
+      {
+        "url": "https://github.com/MrDoraX/ultron/releases/download/v1.2.2/U01.bin",
+        "sha256": "bcd88dd2ba2da4fb2b94d5c98c1b96082fef1b9227df862ce73e69d64f959153",
+        "sizeBytes": 10485760
+      },
+      {
+        "url": "https://github.com/MrDoraX/ultron/releases/download/v1.2.2/U02.bin",
+        "sha256": "ac3921f84027a73d8fd95bf6a6a6e93fefa0e445f2767cfa03d7f6510ac518a0",
+        "sizeBytes": 10485760
+      },
+      {
+        "url": "https://github.com/MrDoraX/ultron/releases/download/v1.2.2/U03.bin",
+        "sha256": "41bce954259d7b776acc9dd3df22183608fb77854e6a49a9dba9109fddf21c02",
+        "sizeBytes": 10485760
+      },
+      {
+        "url": "https://github.com/MrDoraX/ultron/releases/download/v1.2.2/U04.bin",
+        "sha256": "6333c5b43a804f40689b13c417db739d24bfd6449579ef25863e85dcb25b03b4",
+        "sizeBytes": 10485760
+      },
+      {
+        "url": "https://github.com/MrDoraX/ultron/releases/download/v1.2.2/U05.bin",
+        "sha256": "3498394ce7fb6b4452d991bd3bfe4e342ef7b1382c5037b9c783fb1279327c83",
+        "sizeBytes": 10485760
+      },
+      {
+        "url": "https://github.com/MrDoraX/ultron/releases/download/v1.2.2/U06.bin",
+        "sha256": "21cc17a820ff45c4372a3208d554e04df73870e0bf216565f060a0edd75efe40",
+        "sizeBytes": 10485760
+      },
+      {
+        "url": "https://github.com/MrDoraX/ultron/releases/download/v1.2.2/U07.bin",
+        "sha256": "e076dbd14c3fbabbdbd588bf4133d54ad2a881b7adb2e7024d6cd4fffc8f0596",
+        "sizeBytes": 10485760
+      },
+      {
+        "url": "https://github.com/MrDoraX/ultron/releases/download/v1.2.2/U08.bin",
+        "sha256": "ff3abdadfa182de2ee5bfb40e41d0edd98a05c3c248a355ba65884da30ec2ff4",
+        "sizeBytes": 2402939
+      }
+    ]
   }
 }
