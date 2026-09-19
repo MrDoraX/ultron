@@ -1,0 +1,36 @@
+# Dependencies
+node_modules/
+
+# Build
+dist/
+release/
+out/
+*.apk
+*.aab
+
+# Android / Capacitor build artifacts
+android/app/build/
+android/build/
+android/.gradle/
+ios/App/Pods/
+.capacitor/
+
+# Env / secrets
+.env
+.env.local
+.env.*.local
+
+# Logs / OS
+*.log
+npm-debug.log*
+.DS_Store
+Thumbs.db
+
+# Editors
+.idea/
+.vscode/
+*.swp
+
+android/local.properties
+*.keystore
+*.jks
