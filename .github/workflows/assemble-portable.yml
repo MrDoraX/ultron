@@ -1,0 +1,53 @@
+name: Assemble portable from parts
+
+on:
+  release:
+    types: [published]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: Release tag (e.g. v1.2.2)
+        required: true
+
+permissions:
+  contents: write
+
+jobs:
+  assemble:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Resolve tag
+        id: tag
+        run: |
+          TAG="${{ github.event.release.tag_name || inputs.tag }}"
+          echo "tag=$TAG" >> "$GITHUB_OUTPUT"
+          echo "Using tag $TAG"
+
+      - name: Download part binaries
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.tag.outputs.tag }}"
+          gh release download "$TAG" -R MrDoraX/ultron -p 'U*.bin' -D parts
+          ls -la parts
+
+      - name: Concatenate → portable exe
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.tag.outputs.tag }}"
+          VER="${TAG#v}"
+          OUT="Ultron-${VER}-portable.exe"
+          cat parts/U01.bin parts/U02.bin parts/U03.bin parts/U04.bin \
+              parts/U05.bin parts/U06.bin parts/U07.bin parts/U08.bin > "$OUT"
+          ls -la "$OUT"
+          sha256sum "$OUT" | tee sha256.txt
+          echo "out=$OUT" >> "$GITHUB_ENV"
+
+      - name: Upload portable to release
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          TAG="${{ steps.tag.outputs.tag }}"
+          gh release upload "$TAG" "$OUT" sha256.txt -R MrDoraX/ultron --clobber
